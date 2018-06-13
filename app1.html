@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Application</title>
+    <script src="angular.min.js"></script>
+    <script src="jquery-3.3.1.js"></script>
+    <script src="controller.js"></script>
+  </head>
+  <body>
+    <div class="" ng-app="FirstApp" ng-controller="CRUDController">
+      <table>
+        <tr>
+          <td>ID</td>
+          <td>{{ID}}</td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td> <input type="text" placeholder="Enter Name" ng-model = "Name"> </td>
+        </tr>
+        <tr>
+          <td>Salary</td>
+          <td> <input type="number" placeholder="Enter Salary" ng-model = "Salary"> </td>
+        </tr>
+          <tr>
+            <td> <input type="button" ng-click="AddData()" value="Save Data"> </td>
+            <td> <input type="button" ng-click="UpdateData()" value="Update Data"> </td>
+          </tr>
+      </table>
+
+      <table border="1" style="width:300px;">
+        <thead>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Salary</th>
+        </thead>
+        <tr ng-click="BindSelectedData(Emp)" ng-repeat = "Emp in EmpList">
+            <td>{{Emp.Id}}</td>
+            <td>{{Emp.Name}}</td>
+            <td>{{Emp.Salary}}</td>
+            <td> <input type="button" value="Delete" ng-click = "Delete(Emp)"> </td>
+        </tr>
+      </table>
+
+    </div>
+  </body>
+</html>
